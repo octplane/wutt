@@ -29,14 +29,18 @@
   </style>
 </head>
 <body>
+  {% for m in mailList %}
   <div class="line">
-    <span class="b index">29503</span>
-    <span class="b flags">CDT</span>
-    <span class="b date">23 Jan 2013</span>
-    <span class="b from">Roger Daniel</span>
-    <span class="b info">( 0)</span>
-    <span class="b title">Scandale !</span>
+    <span class="b index">{{ m.id }}</span>
+    <span class="b flags">{{ m.flags}}</span>
+    <span class="b date">{{ m.date }}</span>
+    <span class="b from">{{ m.from }}</span>
+    <span class="b info">( {{ m.extra }})</span>
+    {% autoescape off %}
+    <span class="b title">{{ m.subject }}</span>
+    {%endautoescape %}
   </div>
+  {% endfor %}
 
   </div>
 </body>
